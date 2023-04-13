@@ -93,14 +93,14 @@ public class ReportServiceImpl implements ReportService {
 	public boolean exportPdf(HttpServletResponse response) throws Exception {
 
 		
-		File f = new File("Plans.pdf");
+		File f = new File("D:\\Softwares\\STS Tool\\sts_workspace\\Insurance-Reports-Genaration-App/Plans.pdf");
 		List<CitizenPlan> plans = planRepo.findAll();
 		
 		pdflGenerator.generate(response, plans, f);
 		String subject = "Test Mail Subject";
 		String body = "<h1>Test Mail Body</h1>";
 		String to = "gainilaxman12@gmail.com";
-		f.delete();
+		//f.delete();
 		emailUtils.sendEmail(subject, body, to, f);
 
 		
